@@ -1,0 +1,18 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c3579;
+  height: 30px;
+}
+
+.header form {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
