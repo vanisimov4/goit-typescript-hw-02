@@ -1,10 +1,10 @@
-import ImageCard from '../imageCard/ImageCard';
-import css from './ImageGallery.module.css';
+import ImageCard from "../imageCard/ImageCard";
+import css from "./ImageGallery.module.css";
 
 const ImageGallery = ({ items, onClickModal }) => {
   return (
     <ul className={css.gallery}>
-      {items.map(item => (
+      {items.map((item) => (
         <li key={item.id}>
           <ImageCard
             onClickModal={onClickModal}
