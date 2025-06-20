@@ -2,7 +2,10 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.unsplash.com';
 
-const fetchPhotosByName = async (name, currentPage) => {
+const fetchPhotosByName = async <T>(
+  name: string,
+  currentPage: number
+): Promise<T> => {
   const END_POINT = '/search/photos/';
   const params = {
     query: encodeURIComponent(name),
