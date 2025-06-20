@@ -11,7 +11,7 @@ import ErrorMessage from '../errorMessage/ErrorMessage';
 import ImageModal from '../imageModal/ImageModal';
 import './App.css';
 
-interface Photo {
+export interface Photo {
   id: string;
   alt_description: string;
   urls: Urls;
@@ -32,7 +32,7 @@ function App() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showBtn, setShowBtn] = useState<boolean>(false);
 
-  const handleSearch = userData => {
+  const handleSearch = (userData: string) => {
     closeModal();
     setPhotos([]);
     setQuery(userData);
@@ -43,7 +43,7 @@ function App() {
     if (query === '') {
       return;
     }
-    async function fetchData(searchData, page) {
+    async function fetchData(searchData: string, page: number) {
       try {
         setError(false);
         setLoading(true);
@@ -74,7 +74,7 @@ function App() {
     });
   }
 
-  const openModal = image => {
+  const openModal = (image: string) => {
     if (!isOpen) {
       setSelectedImage(image);
       setIsOpen(true);
@@ -85,7 +85,7 @@ function App() {
     setIsOpen(false);
   };
 
-  const onClickModal = image => openModal(image);
+  const onClickModal = (image: string) => openModal(image);
 
   return (
     <>
