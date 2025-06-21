@@ -47,7 +47,7 @@ function App() {
         } else {
           setPhotos(results);
         }
-      } catch (error) {
+      } catch (error: unknown) {
         setError(true);
       } finally {
         setLoading(false);

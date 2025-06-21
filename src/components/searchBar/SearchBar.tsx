@@ -15,8 +15,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
     const textSearch = formData.get('textSearch') as string;
     const textSearchTrim = textSearch.trim();
 
-    // const form = evt.target;
-    // const textSearch: string = form.elements.textSearch.value.trim();
     if (textSearchTrim === '') {
       return toast.error('text must be entered to search for images');
     }
