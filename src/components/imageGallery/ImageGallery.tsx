@@ -13,11 +13,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ items, onClickModal }) => {
     <ul className={css.gallery}>
       {items.map(item => (
         <li key={item.id}>
-          <ImageCard
-            onClickModal={onClickModal}
-            photo={item}
-            // alt_description={item.alt_description}
-          />
+          <ImageCard onClickModal={onClickModal} photo={item} />
         </li>
       ))}
     </ul>

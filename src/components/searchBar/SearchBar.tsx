@@ -5,13 +5,17 @@ import css from './SearchBar.module.css';
 const SearchBar = ({ onSubmit }) => {
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+    const form = evt.currentTarget;
+    const formData = new FormData(form);
+    const textSearch = formData.get('textSearch') as string;
+    const textSearchTrim = textSearch.trim();
 
-    const form = evt.target;
-    const textSearch: string = form.elements.textSearch.value.trim();
-    if (textSearch === '') {
+    // const form = evt.target;
+    // const textSearch: string = form.elements.textSearch.value.trim();
+    if (textSearchTrim === '') {
       return toast.error('text must be entered to search for images');
     }
-    onSubmit(textSearch);
+    onSubmit(textSearchTrim);
     form.reset();
   };
 
