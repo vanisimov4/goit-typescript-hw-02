@@ -33,7 +33,7 @@ function App() {
     if (query === '') {
       return;
     }
-    async function fetchData(searchData: string, page: number) {
+    async function fetchData(searchData: string, page: number): Promise<void> {
       try {
         setError(false);
         setLoading(true);
@@ -41,7 +41,7 @@ function App() {
           searchData,
           page
         );
-        setShowBtn(total_pages && total_pages !== page);
+        setShowBtn(total_pages !== 0 && total_pages !== page);
         if (searchData === query) {
           setPhotos(prevPhotos => [...prevPhotos, ...results]);
         } else {

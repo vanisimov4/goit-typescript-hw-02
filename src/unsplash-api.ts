@@ -1,11 +1,14 @@
 import axios from 'axios';
+import { Photo } from './types';
+
+interface FetchPhotosResponse {
+  results: Photo[];
+  total_pages: number;
+}
 
 axios.defaults.baseURL = 'https://api.unsplash.com';
 
-const fetchPhotosByName = async <T>(
-  name: string,
-  currentPage: number
-): Promise<T> => {
+const fetchPhotosByName = async (name: string, currentPage: number) => {
   const END_POINT = '/search/photos/';
   const params = {
     query: encodeURIComponent(name),
@@ -15,7 +18,7 @@ const fetchPhotosByName = async <T>(
     client_id: 'agCoAE_BIGSEpvgvLxJ6ULj4TKLWHwrqFtAGIwtc7sY',
   };
 
-  const response = await axios.get(END_POINT, { params });
+  const response = await axios.get<FetchPhotosResponse>(END_POINT, { params });
   return response.data;
 };
 
