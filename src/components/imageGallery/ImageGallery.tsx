@@ -1,20 +1,22 @@
+import React from 'react';
 import ImageCard from '../imageCard/ImageCard';
+import { Photo } from '../../types';
 import css from './ImageGallery.module.css';
 
 interface ImageGalleryProps {
-  items;
+  items: Photo[];
   onClickModal: (image: string) => void;
 }
 
-const ImageGallery = ({ items, onClickModal }) => {
+const ImageGallery: React.FC<ImageGalleryProps> = ({ items, onClickModal }) => {
   return (
     <ul className={css.gallery}>
       {items.map(item => (
         <li key={item.id}>
           <ImageCard
             onClickModal={onClickModal}
-            urls={item.urls}
-            alt_description={item.alt_description}
+            photo={item}
+            // alt_description={item.alt_description}
           />
         </li>
       ))}

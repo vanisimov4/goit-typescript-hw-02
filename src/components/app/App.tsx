@@ -9,18 +9,8 @@ import Loader from '../loader/Loader';
 import LoadMoreBtn from '../loadMoreBtn/LoadMoreBtn';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import ImageModal from '../imageModal/ImageModal';
+import { Photo } from '../../types';
 import './App.css';
-
-export interface Photo {
-  id: string;
-  alt_description: string;
-  urls: Urls;
-}
-
-interface Urls {
-  small: string;
-  regular: string;
-}
 
 function App() {
   const [query, setQuery] = useState<string>('');

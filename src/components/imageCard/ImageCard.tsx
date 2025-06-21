@@ -1,10 +1,17 @@
-const ImageCard = ({ urls, alt_description, onClickModal }) => {
+import { Photo } from '../../types';
+
+interface ImageCardProps {
+  photo: Photo;
+  onClickModal: (image: string) => void;
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ photo, onClickModal }) => {
   return (
     <div>
       <img
-        src={urls.small}
-        alt={alt_description}
-        onClick={() => onClickModal(urls.regular)}
+        src={photo.urls.small}
+        alt={photo.alt_description}
+        onClick={() => onClickModal(photo.urls.regular)}
       />
     </div>
   );

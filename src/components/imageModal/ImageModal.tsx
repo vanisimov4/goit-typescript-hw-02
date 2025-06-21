@@ -1,8 +1,19 @@
+import React from 'react';
 import Modal from 'react-modal';
 
 import css from './ImageModal.module.css';
 
-const ImageModal = ({ isOpen, imageUrl, onClose }) => {
+interface ImageModalProps {
+  imageUrl: string | null;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({
+  isOpen,
+  imageUrl,
+  onClose,
+}) => {
   return (
     <div>
       {isOpen && <div className={css.overlay} onClick={onClose}></div>}
